@@ -2,22 +2,25 @@
 <html>
 <head> 
 <meta charset="utf-8"> 
-<title>Parallel Element</title> 
+<title>Parallel Elements</title> 
 </head>
 <body>
-
 <div id="div1">
-	<div id="fruit" style="color:#0000FF;float:left;width:180px">
+	<div id="fruit" style="color:#66CCFF;float:left;width:100px">
 		<p>Apple</p>
 		<p>Banana</p>
 		<p>Orange</p>
 	</div>
-	<div id="price" style="color:#0000FF;float:left;">
-		<p>$2</p>
-		<p>$1</p>
-		<p>$3</p>
+	<div id="animal" style="color:#FF9900;float:left;">
+		<p>dog</p>
+		<p>pig</p>
+		<p>fish</p>
 	</div>
 </div>
-
+<div id="div2" style="color:#00CCFF;clear:left">
+	<p>add float:left to each element to make them parallel</p>
+	<p>use clear:left to end parallel element</p>
+    <p>parallel element must assign width</p>
+</div>
 </body>
 </html>
