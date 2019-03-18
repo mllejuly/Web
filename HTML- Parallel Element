@@ -20,7 +20,7 @@
 <div id="div2" style="color:#00CCFF;clear:left">
 	<p>add float:left to each element to make them parallel</p>
 	<p>use clear:left to end parallel element</p>
-    <p>parallel element must assign width</p>
+        <p>parallel element must assign width</p>
 </div>
 </body>
 </html>
