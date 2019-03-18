@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head> 
+<meta charset="utf-8"> 
+<title>Parallel Element</title> 
+</head>
+<body>
+
+<div id="div1">
+	<div id="fruit" style="color:#0000FF;float:left;width:180px">
+		<p>Apple</p>
+		<p>Banana</p>
+		<p>Orange</p>
+	</div>
+	<div id="price" style="color:#0000FF;float:left;">
+		<p>$2</p>
+		<p>$1</p>
+		<p>$3</p>
+	</div>
+</div>
+
+</body>
+</html>
