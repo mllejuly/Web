@@ -23,7 +23,6 @@
 // JS part
 $scope.loadSearchResult = function(){
     search = $scope.search
-    console.log($scope.search)
     $http({
             method: 'POST',
             url: '/search/',
@@ -37,9 +36,7 @@ $scope.loadSearchResult = function(){
 
 function successSearchCallback(data){
     json_search = JSON.parse(data.data)
-    console.log(data.data)
     $scope.search_result = json_search.search_result
-    console.log($scope.search_result)
     //reload result
     $scope.data = $scope.search_result
     $scope.$apply
@@ -53,7 +50,6 @@ function errorSearchCallback(data){
 @api_view(['Post'])
 def Search(request):
     if request.method == 'POST':
-        print request.data
         search_input = request.data['search']
         filter = Q(ColumnName__contains=search_input)
         list = list(InsertSum.objects.filter(filter).values_list())
