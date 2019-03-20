@@ -7,11 +7,9 @@
 
 // HTML part
 <div>
-    <!--search box-->
     <input ng-model="search"
            type="text"
            placeholder="Please search here...">
-    <!--search icon-->
     <span>
         <a ng-click="loadSearchResult()">
             <i class="fa fa-search size24 colorgrey"></i>
