@@ -57,3 +57,8 @@ def Search(request):
         search_result = {"search_result": result}
         data = json.dumps(search_result)
         return Response(data, status=status.HTTP_201_CREATED)
+
+// urls.py
+urlpatterns = [
+    url(r'^Search/$', views.Search, name='Search'),
+]
