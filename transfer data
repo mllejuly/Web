@@ -1,0 +1,65 @@
+// start with HTML, add ng-model to realated tag
+// different backend function should have different ng-model in frontend, cannot share one ng-model
+// add ng-model to input box, and ng-click to search button to make them work
+// turn to JS, write loadResult function
+// turn to backend, write filter function and transfer data to JS
+
+
+// HTML part
+<div>
+    <!--search box-->
+    <input ng-model="search"
+           type="text"
+           placeholder="Please search here...">
+    <!--search icon-->
+    <span>
+        <a ng-click="loadSearchResult()">
+            <i class="fa fa-search size24 colorgrey"></i>
+        </a>
+    </span>
+</div>
+
+
+// JS part
+$scope.loadSearchResult = function(){
+    search = $scope.search
+    console.log($scope.search)
+    $http({
+            method: 'POST',
+            url: '/search/',
+            data: {'search': search},
+            header: {
+                'content-Type': 'application/json'
+            }
+    })
+    .then(successSearchCallback, errorSearchCallback);
+}
+
+function successSearchCallback(data){
+    json_search = JSON.parse(data.data)
+    console.log(data.data)
+    $scope.search_result = json_search.search_result
+    console.log($scope.search_result)
+    //reload result
+    $scope.data = $scope.search_result
+    $scope.$apply
+}
+
+function errorSearchCallback(data){
+}
+
+
+// views.py
+@api_view(['Post'])
+def Search(request):
+    if request.method == 'POST':
+        print request.data
+        search_input = request.data['search']
+        filter = Q(ColumnName__contains=search_input)
+        list = list(InsertSum.objects.filter(filter).values_list())
+        result = []
+        for row in list:
+            result.append(row)
+        search_result = {"search_result": result}
+        data = json.dumps(search_result)
+        return Response(data, status=status.HTTP_201_CREATED)
