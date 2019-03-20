@@ -23,7 +23,7 @@ $scope.loadSearchResult = function(){
     search = $scope.search
     $http({
             method: 'POST',
-            url: '/search/',
+            url: '/Search/',
             data: {'search': search},
             header: {
                 'content-Type': 'application/json'
