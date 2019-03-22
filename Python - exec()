@@ -1,0 +1,12 @@
+# filter is a list with variable length
+# using exec() to avoid several if loop and speed up
+
+
+kw_list = ['a','b','c','d','e']
+
+filter = ""
+for kw in kw_list:
+    filter = filter + "Q(Abstract__icontains='" + kw + "') & "
+    filter = filter[:-3]
+
+exec("list = list(SQLTableName.objects.filter(" + filter + ").values_list())")
