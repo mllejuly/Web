@@ -1,0 +1,24 @@
+# Match List
+# Every element in list b should be in each element of list a
+# Intersection
+
+
+a = ['1235','1245','6661','1355','5233']
+b = ['2','5']
+c = []
+
+for i in range(len(a)):
+	take_a = 1
+	for j in range(len(b)):
+		if b[j] not in a[i]:
+			take_a = 0
+			break
+	if take_a == 1:
+		c.append(a[i])
+	
+
+print c
+
+
+***************
+['1235', '1245', '5233']
