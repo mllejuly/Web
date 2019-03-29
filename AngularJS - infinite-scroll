@@ -1,0 +1,68 @@
+//
+<div ng-controller="appController">
+    <h1>This is {{title}} : {{itemsToDisplay}}/1000</h1>
+
+    <div>
+        <div class="input-group">
+            <input type="text" class="form-control" placeholder="Search here" data-ng-model="search">
+        </div>
+    </div>
+
+    <div>
+        <table infinite-scroll="loadMore()" infinite-scroll-distance="1">
+            <thead>
+                <tr>
+                    <td>Index</td>
+                    <td>Items</td>
+                    <td>Current number of Items</td>
+                </tr>
+            </thead>
+            
+            <tbody>
+                <tr data-ng-show="items.length === 0">
+                    <td class="center" colspan="3">Nobody is here</td>
+                </tr>
+
+                <tr data-ng-repeat="item in items = (itemsData | filter:search | limitTo:itemsToDisplay) track by $index">
+                    <td> {{$index}} </td>
+                    <td> {{item.name}} </td>
+                    <td> {{itemsToDisplay}} </td>
+                </tr>      
+            </tbody>
+        </table>
+    </div>
+</div>
+
+
+
+//JS
+ var app = angular.module('app', ['infinite-scroll'])
+ 
+ function appController($scope, $window) {
+ 
+     $scope.title = "infinite scroll example";
+     $scope.search = "";
+     $scope.itemToDisplay = 20;
+
+     $scope.items = [];
+     for (var i = 0; i < 1000; i++) {
+         $scope.items.push({
+             name: "Hello, my name is " + i
+         });
+     }
+
+     $scope.loadMore = function() {
+         if ($scope.itemToDisplay + 5 < $scope.items.length) {
+             $scope.itemToDisplay += 5;
+         } else {
+             $scope.itemToDisplay = $scope.items.length;
+         }
+     };
+ };
+
+
+
+
+
+//Reference
+https://jsfiddle.net/lisapfisterer/Lu4sbxps/
