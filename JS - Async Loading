@@ -1,0 +1,40 @@
+To control Java Script Async Loading
+write a conditional statement
+
+$scope.data appear in function A and B
+function A contains $http, so it take longer time to response
+but we want function A excuted before function B
+we write a condit
+
+
+$scope.A = function () {
+    $http({
+            method: 'get',
+            url: "/xxxxxxxxxx/",
+            headers: {
+                'content-Type': 'application/json'
+            },
+        })
+        .then(successCallback, errorCallback)
+}
+function successCallback(data) {
+    $scope.data = data.data
+    $scope.$apply
+function errorCallback(data) {
+    alert("Error Callback.")
+}
+
+
+//Before
+$scope.B = function () {
+    $scope.X = $scope.Y
+}
+
+
+//After
+$scope.B = function () {
+    if($scope.data.length>0){
+        $scope.X = $scope.Y
+    }
+}
+//B can only be excuted after A finished and got $scope.data
