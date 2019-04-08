@@ -1,0 +1,22 @@
+function removeDup(list) {
+    var list = list
+    var obj = {};
+    var arr = [];
+    for (var i = 0, len = list.length; i < len; i++){
+        var element = list[i]
+        if (obj[element]) continue;
+        else{
+            obj[element] = element;
+            arr.push(element)
+        }
+    }
+    return arr
+}
+
+
+
+*****************************************************
+
+l = [1,1,2,2,3,3]
+m = removeDup(l)
+m = [1, 2, 3]
