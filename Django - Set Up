@@ -1,0 +1,80 @@
+# Create menu
+mkdir djangoproject
+cd C:\Users\Name\djangoproject
+
+
+# Create and activate virtual environment
+python -m virtualenv venv
+cd C:\Users\Name\djangoproject\venv\Scripts
+activate
+
+
+# Create project
+cd C:\Users\Name\djangoproject\venv
+mkdir Project
+cd C:\Users\Name\djangoproject\venv\Project
+django-admin startproject project .
+python manage.py migrate
+
+
+# Create app
+python manage.py startapp app
+# Add 'app' to project/settings.py/INSTALLED_APPS
+python manage.py migrate app
+
+
+# Create superuser
+python manage.py createsuperuser
+
+
+# Run server
+# http://127.0.0.1:8000/
+python manage.py runserver
+
+
+*******************************************************************************************
+python -m virtualenv swift
+activate
+pip install Django==1.10.7
+django-admin startproject project .
+
+python manage.py startapp app1
+python manage.py migrate
+python manage.py makemigrations app1
+python manage.py migrate app1
+python manage.py createsuperuser
+python manage.py runserver
+
+
+*******************************************************************************************
+# project/settings.py
+
+INSTALLED_APPS = [
+    'django.contrib.admin',
+    'django.contrib.auth',
+    'django.contrib.contenttypes',
+    'django.contrib.sessions',
+    'django.contrib.messages',
+    'django.contrib.staticfiles',
+    'app1',    # Add app
+]
+
+DATABASES = {
+    'default': {
+        'ENGINE': 'sql_server.pyodbc',       # Set database
+        'NAME': 'app1',                      # Set database
+        'HOST': r'**********\SQLEXPRESS',    # ********** for hostname
+        'USER': 'user',                      # Set database
+        'PASSWORD': '*******',               # Set database
+        'OPTIONS': {                         # Set database
+                'driver': 'SQL Server Native Client 11.0',
+                'MARS_Connection': 'True',
+        },
+    }
+}
+
+'DIRS': [os.path.join(BASE_DIR, "templates").replace('\\', '/')],    # add path for templates
+
+STATICFILES_DIRS = (                                                 # add static
+    os.path.join(BASE_DIR, "static"),
+)
