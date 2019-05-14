@@ -1,0 +1,14 @@
+1.
+https://stackoverflow.com/questions/8710456/reading-a-binary-file-with-python
+
+Read the binary file content like this:
+
+with open(fileName, mode='rb') as file: # b is important -> binary
+    fileContent = file.read()
+
+
+
+import struct
+data = open("from_fortran.bin", "rb").read()
+(eight, N) = struct.unpack("@II", data)
+struct.unpack("i" * ((len(fileContent) -24) // 4), fileContent[20:-4])
