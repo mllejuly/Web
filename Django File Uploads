@@ -1,0 +1,24 @@
+HttpRequest.FILES
+表单上传的文件对象存储在类字典对象request.FILES中，表单格式需为multipart/form-data：
+
+<form enctype="multipart/form-data" method="post" action="/upload_url/">
+<input type="file" name="file_name" />
+
+request.FILES中的键来自于表单中的<input type="file" name="file_name" />的name值：
+
+file=request.FILES['file_name']
+
+request.FILES中的值均为UploadedFile类文件对象。
+UploadedFile
+UploadedFile是类文件对象，具有以下方法和属性：
+UploadedFile.read()：读取整个上传文件的数据，文件较大时慎用。
+UploadedFile.multiple_chunks(chunk_size=None)：判断文件是否足够大，一般为2.5M
+UploadedFile.chunks(chunk_size=None)：返回一个生成器对象，当multiple_chunks()为True时应该使用这个方法来代替read().
+UploadedFile.name：上传文件的name。
+UploadedFile.size：上传文件的大小。
+UploadedFile.content_type：上传文件时的content_type报头，例如(e.g. text/plain or application/pdf). 
+UpladedFile.charset：编码
+
+【Reference】
+https://blog.csdn.net/zahuopuboss/article/details/54891917
+
