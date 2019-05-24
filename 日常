@@ -1,13 +1,5 @@
 【2019.5.23】
 迷迷糊糊的一天…
-不是很开心呐，被迫辞职了。本来想做到六月底的。
-不过也想好了对策，接下来就准备好好刷算法题，准备入学了吧。
-
-真的我也想好好做的，反思了很多，无论公司的问题还是老板的问题，可以做的只有解决自己的问题。
-选择也是问题，请一定要进大厂哦！
-
-Anyway，这一段全职经历都让我受益匪浅。全职和自己做项目，感觉是完全不一样的呐
-今天请manager帮我解决了两个问题。
 
 1. 
 第一个问题是输入框{[{fileName}]}，本来不应该显示在这里的，可是却显示了，说明JS里有一个部分没有加载上。
@@ -19,5 +11,10 @@ myapp.config(function ($interpolateProvider) {
 });
 
 
-其实很多时候debug完了之后会发现很多事情挺简单的，但是不会的话就是好难好难啊。
-感觉每天都要说好多丧气的话，为了不给别人带来太多负面情绪，就写在这里吧！
+【2019.5.24】
+1. AssertionError: .accepted_renderer not set on Response
+把@api_view和@renderer_classes加在view函数前面
+add the @api_view and the @renderer_classes decorator to your view.
+https://stackoverflow.com/questions/55416471/how-to-resolve-assertionerror-accepted-renderer-not-set-on-response-in-django?answertab=oldest#tab-top
+
+2. AssertionError: @api_view missing list of allowed HTTP methods
