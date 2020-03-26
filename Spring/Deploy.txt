@@ -1,0 +1,7 @@
+Steps to Deploy a Java Application to AWS Cloud
+
+Before proceeding further there are a few prerequisites for this.
+JDK 8 or higher
+Tomcat 8 or higher
+Eclipse IDE for Java EE
+Free AWS account
