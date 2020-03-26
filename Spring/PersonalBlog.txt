@@ -1,0 +1,48 @@
+
+【AWS】
+
+【git】
+git clone https://github.com/in28minutes/deploy-spring-boot-aws-eb.git
+pwd
+
+【maven】
+// how to install maven in windows
+https://mkyong.com/maven/how-to-install-maven-in-windows/
+
+D:
+D:\>cd D:\deploy-spring-boot-aws-eb\01-spring-boot-hello-world-rest-api
+
+/*
+https://www.google.com/search?q=aws&oq=aws&aqs=chrome..69i57j69i59j0j69i60l5.7315j0j7&sourceid=chrome&ie=UTF-8
+每个部分代表什么
+*/
+
+deploy-spring-boot-aws-eb是一个sample project，maven是一个依赖工具。
+
+D:\deploy-spring-boot-aws-eb\01-spring-boot-hello-world-rest-api\target\01-spring-boot-hello-world-rest-api-0.0.1-SNAPSHOT.jar
+
+【AWS】
+// deploy project in AWS
+All Applications  erin's blog  ErinsBlog-env → upload and deploy
+// initial page
+http://erinsblog-env.eba-pih2pc6v.us-east-2.elasticbeanstalk.com/hello-world
+
+
+// 静态文件
+D:\Erin's Blog\spring-boot-examples-master\spring-boot-examples-master\spring-boot-web-application-bootstrap-jquery\src\main\resources\static
+
+// 将网页前端装在project里，mvn install上传
+D:\Erin's Blog\spring-boot-examples-master\spring-boot-examples-master\spring-boot-web-application-bootstrap-jquery
+mvn install
+
+
+// visit home page
+http://erinsblog-env.eba-pih2pc6v.us-east-2.elasticbeanstalk.com/hello-world
+
+
+// configuration -> PORT  8080
+http://erinsblog-env.eba-pih2pc6v.us-east-2.elasticbeanstalk.com/homepage-master/index.html
+
+
+
+
